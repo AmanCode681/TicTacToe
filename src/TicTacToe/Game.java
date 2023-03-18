@@ -26,7 +26,7 @@ public class Game {
 
 	private void initializeBoard() {
 		// TODO Auto-generated method stub
-		this.board=new Board(3,3);
+		this.board=new Board(3);
 		
 	}
 	
@@ -49,11 +49,12 @@ public class Game {
 			{
 				this.board.filledSpaces++;
 				this.board.pieceType[r][c]=cur.getType();
-				if(this.board.checkWinner())
+				//if(this.board.checkWinner(r,c,cur.getType().getCh()))
+				if(this.board.checkWinner2(cur,r,c))
 				{
-					System.out.println(cur+" player wins the game");
 					this.board.displayBoard();
-					break;
+					System.out.println("Player "+ cur.getId()+" wins the game");
+					return;
 				}
 				else
 				{
